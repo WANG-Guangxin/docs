@@ -8,17 +8,17 @@
 using namespace std;
 
 
-#define INF 32767 //×î´óÖµ
-#define MAXV 1000 //×î´ó¶¥µãÊý
+#define INF 32767 //ï¿½ï¿½ï¿½Öµ
+#define MAXV 1000 //ï¿½ï¿½ó¶¥µï¿½ï¿½ï¿½
 static int numVex=0;
 int status = 0;
 typedef struct
 {
 	//char vexs[MAXV];//di
 	int edges[MAXV][MAXV];
-	int n;    // ¶¥µã¸öÊý
-    //int e;     //±ßÊý
-}MGraph;    //±íÊ¾ÁÚ½Ó¾ØÕóµÄÊý¾ÝÀàÐÍ
+	int n;    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    //int e;     //ï¿½ï¿½ï¿½ï¿½
+}MGraph;    //ï¿½ï¿½Ê¾ï¿½Ú½Ó¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 MGraph * createmgraph(int n);
 void writeToFile(int n,string fileName);
@@ -29,19 +29,19 @@ void floyd(MGraph *G,int FDist[][MAXV], int FPath[][MAXV]);
 int _tmain(int argc, _TCHAR* argv[])
 {
 	cout<<"     *********************************************************************"<<endl;
-	cout<<"     *                               ×î¶ÌÂ·¾¶                            *"<<endl;
+	cout<<"     *                               ï¿½ï¿½ï¿½Â·ï¿½ï¿½                            *"<<endl;
 	cout<<"     *********************************************************************"<<endl;
-	cout<<"ÇëÊäÈë¶¥µãÊý:"<<endl;
+	cout<<"ï¿½ï¿½ï¿½ï¿½ï¿½ë¶¥ï¿½ï¿½ï¿½ï¿½:"<<endl;
 
 	while( ++status){
-	clock_t startTime, endTime;//¼ÇÂ¼ÔËÐÐÊ±¼ä
-	const int source=0;//Ô´µã
-	int n=0;//¶¥µãÊý
-	int DDist[MAXV],DPath[MAXV];//µÏ½ÜË¹ÌØÀ­
+	clock_t startTime, endTime;//ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
+	const int source=0;//Ô´ï¿½ï¿½
+	int n=0;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	int DDist[MAXV],DPath[MAXV];//ï¿½Ï½ï¿½Ë¹ï¿½ï¿½ï¿½ï¿½
 	int FDist[MAXV][MAXV];
 	int FPath[MAXV][MAXV];
 	if(status>1)
-	cout<<"ÇëÊäÈë¶¥µãÊý:"<<endl;
+	cout<<"ï¿½ï¿½ï¿½ï¿½ï¿½ë¶¥ï¿½ï¿½ï¿½ï¿½:"<<endl;
 	cin>>n;
 	MGraph * g= createmgraph(n );
 
@@ -49,7 +49,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	readFromFile(g,"Graph.txt");
 
 	//Dijkstra
-	cout << "\nDijkstra ×î¶ÌÂ·¾¶:" << endl;
+	cout << "\nDijkstra ï¿½ï¿½ï¿½Â·ï¿½ï¿½:" << endl;
 	
 	startTime = clock();
 	for(int i = 0;i<1000;i++)
@@ -58,7 +58,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	}
 	endTime = clock();
 	//cout << "startTime="<<startTime << ",endTime= " << endTime << endl;
-	cout << "Dijkstra "<<"¶¥µã£º"<<g->n<<"¸ö, ÓÃÊ±: " << (double)(endTime - startTime)/1000<<"Ãë£¡"<< endl;
+	cout << "Dijkstra "<<"ï¿½ï¿½ï¿½ã£º"<<g->n<<"ï¿½ï¿½, ï¿½ï¿½Ê±: " << (double)(endTime - startTime)/1000<<"ï¿½ë£¡"<< endl;
 	//cout << "path is:" << endl;
 	//void disDPath(MGraph *G,int dist[],int path[],int s[],int v);
 	//printfDPath(DPath, DDist, end);
@@ -69,8 +69,8 @@ int _tmain(int argc, _TCHAR* argv[])
 		}
 	endTime = clock();
 	//cout << "startTime="<<startTime << ",endTime= " << endTime << endl;
-	cout << "\nFloyd    ×î¶ÌÂ·¾¶:" << endl;
-	cout << "Floyd    "<<"¶¥µã£º"<<g->n<<"¸ö, ÓÃÊ±: " << (double)(endTime - startTime)/1000<<"Ãë£¡\n"<< endl;
+	cout << "\nFloyd    ï¿½ï¿½ï¿½Â·ï¿½ï¿½:" << endl;
+	cout << "Floyd    "<<"ï¿½ï¿½ï¿½ã£º"<<g->n<<"ï¿½ï¿½, ï¿½ï¿½Ê±: " << (double)(endTime - startTime)/1000<<"ï¿½ë£¡\n"<< endl;
 	
 	}
 	system("pause");
@@ -84,7 +84,7 @@ int _tmain(int argc, _TCHAR* argv[])
 void writeToFile(int n,string fileName)
 {
 	int num;
-	cout << "ÎÄ¼þÃû :"<<fileName ;
+	cout << "ï¿½Ä¼ï¿½ï¿½ï¿½ :"<<fileName ;
 	ofstream outF(fileName);
 	cout<<endl;
 	for (int i = 0; i <n; i++)
@@ -97,7 +97,7 @@ void writeToFile(int n,string fileName)
 		outF << endl;
 	}
 	outF.close();
-	cout << "Ëæ»úÊý¾ÝÐ´Èë³É¹¦!" << endl;
+	cout << "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð´ï¿½ï¿½É¹ï¿½!" << endl;
 }
 
 
@@ -125,22 +125,22 @@ void readFromFile(MGraph *g, string fileName)
 		//cout << endl;
 	}
 	inF.close();
-	cout << "ÎÄ¼þÊý¾Ý¶ÁÈ¡³É¹¦!" << endl;
+	cout << "ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½Ý¶ï¿½È¡ï¿½É¹ï¿½!" << endl;
 }
 
 
 
 
-MGraph * createmgraph(int n) //½¨Á¢ÓÐÏòÍ¼µÄÁÚ½Ó¾ØÕó
+MGraph * createmgraph(int n) //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ï¿½ï¿½Ú½Ó¾ï¿½ï¿½ï¿½
 { 
 	MGraph *g =(MGraph*)malloc(sizeof(MGraph));
 ;
 	int i,j;
-	g->n=n;//¶¥µã¸öÊý
+	g->n=n;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 
 	
 	
-    for(i=0;i<g->n;i++)         //½¨Á¢Í¼µÄÁÚ½Ó¾ØÕó
+    for(i=0;i<g->n;i++)         //ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ï¿½ï¿½Ú½Ó¾ï¿½ï¿½ï¿½
       for(j=0;j<g->n;j++)
           g->edges[i][j]=0;
 
