@@ -1,0 +1,32 @@
+i=imread('./501_img_.png');%读取你要看的图像
+R=i(:,:,1);%把RGB各个分量提出
+% imwrite(R,'./R3_2/r.jpg');
+G=i(:,:,2);
+% imwrite(G,'./R3_2/g.jpg');
+B=i(:,:,3);
+% imwrite(B,'./R3_2/b.jpg');
+histogram=imhist(R);
+x=0:1:255;
+figure;
+set(gcf,'Position',[0,0,1000,400]);
+subplot(2,3,1), plot(x,imhist(R));
+fill([x,fliplr(x)],[zeros(size(imhist(R)')),fliplr(imhist(R)')],'r');
+set(gca,'XLim',[0 255]); 
+% title('r 通道直方图分布','position',[130,520]);
+xlabel('r 通道直方图分布');
+subplot(2,3,2),plot(x,imhist(G));
+fill([x,fliplr(x)],[zeros(size(imhist(G)')),fliplr(imhist(G)')],'g');
+set(gca,'XLim',[0 255]);
+xlabel('g 通道直方图分布');
+subplot(2,3,3),plot(x,imhist(B));
+fill([x,fliplr(x)],[zeros(size(imhist(B)')),fliplr(imhist(B)')],'b');
+set(gca,'XLim',[0 255]);
+xlabel('b 通道直方图分布');
+% saveas(gcf, './R3_2/fig_b.jpg');
+subplot(2,3,4),imshow(R);
+xlabel('r 通道');
+subplot(2,3,5),imshow(G);
+xlabel('g 通道');
+subplot(2,3,6),imshow(B);
+xlabel('b 通道');
+saveas(gcf, './fig.tif');
